@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3000"] }));
+app.use(cors());
 app.use(express.json());
 
 const SYSTEM_PROMPT = `You are an elite personal trainer and sports nutritionist AI. When a user asks about a workout day, respond ONLY in this exact JSON format with no extra text, no markdown, no code blocks, just raw JSON:
