@@ -95,8 +95,10 @@ app.post("/api/workout", async (req, res) => {
     const rawText = data.choices?.[0]?.message?.content || "";
     console.log("Raw text preview:", rawText.substring(0, 120));
 
-    const cleaned = rawText.replace(/```json|```/g, "").trim();
-    const parsed = JSON.parse(cleaned);
+    const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+if (!jsonMatch) throw new SyntaxError("No JSON found in response");
+const cleaned = jsonMatch[0].trim();
+const parsed = JSON.parse(cleaned);
 
     console.log("Success! Sending workout plan.");
     return res.json({ success: true, data: parsed });
