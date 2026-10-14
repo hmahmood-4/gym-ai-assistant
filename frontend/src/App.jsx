@@ -22,7 +22,7 @@ const MUSCLES = [
 ];
 
 async function fetchWorkoutPlan(query) {
-  const res = await fetch("https://gym-ai-assistant-production.up.railway.app/api/workout", {
+  const res = await fetch("https://gym-ai-assistant-xhzj.vercel.app/api/workout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query }),
