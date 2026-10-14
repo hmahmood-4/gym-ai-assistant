@@ -74,7 +74,7 @@ app.post("/api/workout", async (req, res) => {
         "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+       model: "mixtral-8x7b-32768",
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: query.trim() },
